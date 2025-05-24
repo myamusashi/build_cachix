@@ -8,6 +8,7 @@ jobs:
     env:
       USER: root
     steps:
+    - uses: actions/setup-node@v4
     - uses: actions/checkout@v4
     - name: Install sudo
       run: |
