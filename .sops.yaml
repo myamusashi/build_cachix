@@ -1,0 +1,7 @@
+keys:
+  - &waltz_server age17tr8ymvhtamgprddy0ujcep5ys8zyss3wq9638vj45qaddkn2e0s8ca83q
+creation_rules:
+  - path_regex: secrets.yaml$
+    key_groups:
+      - age:
+        - *waltz_server
