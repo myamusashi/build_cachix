@@ -5,7 +5,10 @@ on:
 jobs:
   tests:
     runs-on: ubuntu-latest
+    env:
+      USER: root
     steps:
+    - uses: actions/setup-node@v4
     - uses: actions/checkout@v4
     - name: Install sudo
       run: |
