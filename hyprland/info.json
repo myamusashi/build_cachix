@@ -1,0 +1,16 @@
+{
+  "branch": "main",
+  "commit_hash": "be6ee6e55f08387a9e2fbf712c061fb238a70319",
+  "commit_message": "cmake: disable gprof by default",
+  "date": "2025-05-26",
+  "version_type": "unstable",
+  "version": "unstable-2025-05-26",
+  "commit_used": "be6ee6e55f08387a9e2fbf712c061fb238a70319",
+  "latest_release": {
+    "tag": "v0.49.0",
+    "name": "v0.49.0",
+    "published_at": "2025-05-08T20:28:38Z",
+    "is_prerelease": "false",
+    "matches_latest_commit": false
+  }
+}

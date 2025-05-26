@@ -1,14 +1,11 @@
-name: "Test"
+name: "Build Packages for Cachix"
 on:
   pull_request:
   push:
 jobs:
   tests:
     runs-on: ubuntu-latest
-    env:
-      USER: root
     steps:
-    - uses: actions/setup-node@v4
     - uses: actions/checkout@v4
     - name: Install sudo
       run: |
@@ -21,5 +18,4 @@ jobs:
       with:
         name: myamusashi
         authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
-    - run: nix-build
-    - run: nix-shell --run "echo OK"
+    - run: nix build | cachix push myamusashi

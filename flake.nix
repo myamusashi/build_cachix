@@ -1,7 +1,7 @@
 {
   description = "Build packages";
 
-  inputs.nixpkgs.url = "github:NixOS/nixpkgs/master";
+  inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
   outputs = {
     self,
@@ -11,10 +11,9 @@
     pkgs = import nixpkgs {inherit system;};
   in {
     packages.${system} = {
-      webkitgtk = pkgs.callPackage ./webkitgtk {
-        gst-plugins-bad = pkgs.gst_all_1.gst-plugins-bad;
-      };
+      webkitgtk = pkgs.callPackage ./webkitgtk {};
       hyprspace = pkgs.callPackage ./hyprspace {};
+      hyprland = pkgs.callPackage ./hyprland {};
       telegram-desktop = pkgs.callPackage ./telegram-desktop {};
       vesktop = pkgs.callPackage ./vesktop {};
       default = pkgs.symlinkJoin {
@@ -24,6 +23,7 @@
           self.packages.${system}.hyprspace
           self.packages.${system}.telegram-desktop
           self.packages.${system}.vesktop
+          self.packages.${system}.hyprland
         ];
       };
     };
