@@ -11,7 +11,10 @@
     pkgs = import nixpkgs {inherit system;};
   in {
     packages.${system} = {
-      webkitgtk = pkgs.callPackage ./webkitgtk {};
+      webkitgtk = pkgs.callPackage ./webkitgtk {
+        gst-plugins-bad = pkgs.gst_all_1.gst-plugins-bad;
+        gst-plugins-base = pkgs.gst_all_1.gst-plugins-base;
+      };
       hyprspace = pkgs.callPackage ./hyprspace {};
       hyprland = pkgs.callPackage ./hyprland {};
       telegram-desktop = pkgs.callPackage ./telegram-desktop {};
