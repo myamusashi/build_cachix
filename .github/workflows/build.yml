@@ -5,15 +5,13 @@ on:
 jobs:
   tests:
     runs-on: ubuntu-latest
-    env:
-      USER: root
     steps:
     - uses: actions/setup-node@v4
     - uses: actions/checkout@v4
-    - name: Install sudo
+    - name: Update packages and Install sudo (if not present)
       run: |
-        apt-get update && apt-get full-upgrade -y
-        apt-get install -y sudo
+        sudo apt-get update && sudo apt-get full-upgrade -y
+        sudo apt-get install -y sudo
     - uses: cachix/install-nix-action@v25
       with:
         nix_path: nixpkgs=channel:nixos-unstable
@@ -21,4 +19,7 @@ jobs:
       with:
         name: myamusashi
         authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
-    - run: nix build | cachix push myamusashi
+    - name: Build and push to Cachix
+      run: |
+        nix build | cachix push myamusashi
+
