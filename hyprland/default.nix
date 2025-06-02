@@ -93,7 +93,7 @@ customStdenv.mkDerivation (finalAttrs: {
     repo = "hyprland";
     fetchSubmodules = true;
     rev = finalAttrs.version;
-    hash = info.tarball_hash;
+    hash = "sha256-VF3PeH4gJyKPYuhbEAN9/C/F6LdNA1/C4jRUP3n2NhU=";
   };
 
   postPatch = ''
