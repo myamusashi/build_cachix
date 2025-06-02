@@ -86,13 +86,13 @@ assert assertMsg (!hidpiXWayland)
 
 customStdenv.mkDerivation (finalAttrs: {
   pname = "hyprland" + optionalString debug "-debug";
-  version = info.version;
+  version = info.commit_hash;
 
   src = fetchFromGitHub {
     owner = "hyprwm";
     repo = "hyprland";
     fetchSubmodules = true;
-    tag = finalAttrs.version;
+    rev = finalAttrs.version;
     hash = info.tarball_hash;
   };
 
