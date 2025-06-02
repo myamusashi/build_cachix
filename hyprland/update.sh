@@ -40,7 +40,6 @@ echo "Tarball URL: $tarball_url"
 # Dapatkan hash menggunakan nix store prefetch-file
 echo "Prefetching tarball to get hash..."
 prefetch_result="$(nix store prefetch-file --hash-type sha256 --json "$tarball_url" 2>/dev/null || echo '{}')"
-
 if [ "$(jq -r '.hash // empty' <<<"$prefetch_result")" != "" ]; then
 	tarball_hash="$(jq -r '.hash' <<<"$prefetch_result")"
 	echo "✓ Tarball hash: $tarball_hash"

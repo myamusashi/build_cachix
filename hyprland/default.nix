@@ -41,7 +41,6 @@
   xwayland,
   debug ? false,
   enableXWayland ? true,
-  legacyRenderer ? false,
   withSystemd ? lib.meta.availableOn stdenv.hostPlatform systemd,
   wrapRuntimeDeps ? true,
   # deprecated flags
@@ -180,7 +179,6 @@ customStdenv.mkDerivation (finalAttrs: {
   mesonFlags = concatLists [
     (mapAttrsToList mesonEnable {
       "xwayland" = enableXWayland;
-      "legacy_renderer" = legacyRenderer;
       "systemd" = withSystemd;
       "uwsm" = false;
       "hyprpm" = false;
