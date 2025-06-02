@@ -1,16 +1,16 @@
 {
   "branch": "main",
-  "commit_hash": "be6ee6e55f08387a9e2fbf712c061fb238a70319",
-  "commit_message": "cmake: disable gprof by default",
-  "date": "2025-05-26",
+  "commit_hash": "b1d0a727cc594e5329c5971d73391c7529e1c80e",
+  "commit_message": "internal: Center window on parent if available (#10582)",
+  "date": "2025-06-02",
   "version_type": "unstable",
-  "version": "unstable-2025-05-26",
-  "commit_used": "be6ee6e55f08387a9e2fbf712c061fb238a70319",
+  "version": "unstable-2025-06-02",
+  "commit_used": "b1d0a727cc594e5329c5971d73391c7529e1c80e",
+  "tarball_url": "https://github.com/hyprwm/Hyprland/archive/b1d0a727cc594e5329c5971d73391c7529e1c80e.tar.gz",
+  "tarball_hash": "sha256-RFJF2doqdzVhNt3aNjm+VWFlY9OB5S8EJcPNhPBRFFM=",
   "latest_release": {
-    "tag": "v0.49.0",
-    "name": "v0.49.0",
+    "tag_name": "v0.49.0",
     "published_at": "2025-05-08T20:28:38Z",
-    "is_prerelease": "false",
-    "matches_latest_commit": false
+    "is_prerelease": false
   }
 }

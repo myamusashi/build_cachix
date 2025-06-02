@@ -86,14 +86,14 @@ assert assertMsg (!hidpiXWayland)
 
 customStdenv.mkDerivation (finalAttrs: {
   pname = "hyprland" + optionalString debug "-debug";
-  version = "0.49.0";
+  version = info.version;
 
   src = fetchFromGitHub {
     owner = "hyprwm";
     repo = "hyprland";
     fetchSubmodules = true;
-    tag = "v${finalAttrs.version}";
-    hash = "sha256-3RVRQr+2WKBflZSsoLym9RwyqHWPk/J5WRtuJ0hgA+g=";
+    tag = finalAttrs.version;
+    hash = info.tarball_hash;
   };
 
   postPatch = ''
@@ -111,7 +111,7 @@ customStdenv.mkDerivation (finalAttrs: {
   DIRTY = "";
   HASH = info.commit_hash;
   MESSAGE = info.commit_message;
-  TAG = info.latest_release.tag;
+  TAG = info.latest_release.tag_name;
 
   depsBuildBuild = [
     # to find wayland-scanner when cross-compiling
