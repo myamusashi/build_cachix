@@ -3,8 +3,7 @@ name: "Build and Push to Cachix"
 on:
   push:
     branches:
-      - "main"
-  workflow_dispatch:
+      - "master"
 
 jobs:
   build-and-push:
