@@ -1,3 +1,3 @@
-# nixCachix_jobs
+# nixDots
 
-CI untuk build nix package
+nix flake

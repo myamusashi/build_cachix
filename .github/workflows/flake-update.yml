@@ -1,0 +1,33 @@
+name: "Update Flake Inputs"
+
+on:
+  schedule:
+    - cron: '0 0 * * 0'
+  workflow_dispatch:
+
+jobs:
+  update-flake-lock:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Checkout repository"
+        uses: actions/checkout@v4
+
+      - name: "Install Nix"
+        uses: DeterminateSystems/nix-installer-action@main
+
+      - name: "Update flake inputs"
+        run: nix flake update
+
+      - name: "Check for changes"
+        id: git_status
+        run: echo "porcelain=$(git status --porcelain=v1 flake.lock)" >> $GITHUB_OUTPUT
+
+      - name: "Commit and push changes"
+        if: steps.git_status.outputs.porcelain
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git add flake.lock
+          git commit -m "chore: update flake.lock"
+          git push
+

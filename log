@@ -1,0 +1,80 @@
+Running phase: unpackPhase
+@nix { "action": "setPhase", "phase": "unpackPhase" }
+unpacking source archive /nix/store/9w7qv9q06r00s0hwv4ffzqz8zv0yjlf4-source
+source root is source
+Running phase: patchPhase
+@nix { "action": "setPhase", "phase": "patchPhase" }
+substituteStream() in derivation vmware-modules-workstation-17.6.3-6.15.0: WARNING: '--replace' is deprecated, use --replace-{fail,warn,quiet}. (file 'Makefile')
+Running phase: updateAutotoolsGnuConfigScriptsPhase
+@nix { "action": "setPhase", "phase": "updateAutotoolsGnuConfigScriptsPhase" }
+Running phase: configurePhase
+@nix { "action": "setPhase", "phase": "configurePhase" }
+no configure script, doing nothing
+Running phase: buildPhase
+@nix { "action": "setPhase", "phase": "buildPhase" }
+build flags: -j4 SHELL=/nix/store/xy4jjgw87sbgwylm5kn047d9gkbhsr9x-bash-5.2p37/bin/bash
+make -C vmmon-only 
+make -C vmnet-only 
+make[1]: Entering directory '/build/source/vmnet-only'
+make[1]: Entering directory '/build/source/vmmon-only'
+Using kernel build system.
+Using kernel build system.
+make -C /nix/store/6lcz8r0ygva68y2iy6b1idqypc5lv0hq-linux-6.15.0-dev/lib/modules/6.15.0-cachyos/build/include/.. M=$PWD SRCROOT=$PWD/. \
+  MODULEBUILDDIR= modules
+make[2]: Entering directory '/nix/store/6lcz8r0ygva68y2iy6b1idqypc5lv0hq-linux-6.15.0-dev/lib/modules/6.15.0-cachyos/build'
+make[3]: Entering directory '/build/source/vmmon-only'
+make -C /nix/store/6lcz8r0ygva68y2iy6b1idqypc5lv0hq-linux-6.15.0-dev/lib/modules/6.15.0-cachyos/build/include/.. M=$PWD SRCROOT=$PWD/. \
+  MODULEBUILDDIR= modules
+make[2]: Entering directory '/nix/store/6lcz8r0ygva68y2iy6b1idqypc5lv0hq-linux-6.15.0-dev/lib/modules/6.15.0-cachyos/build'
+make[3]: Entering directory '/build/source/vmnet-only'
+  CC [M]  linux/driverLog.o
+  CC [M]  linux/driver.o
+  CC [M]  linux/hostif.o
+[01m[Klinux/hostif.c:30:10:[m[K [01;31m[Kfatal error: [m[Kdriver-config.h: No such file or directory
+   30 | #include [01;31m[K"driver-config.h"[m[K
+      |          [01;31m[K^~~~~~~~~~~~~~~~~[m[K
+compilation terminated.
+[01m[Klinux/driver.c:21:10:[m[K [01;31m[Kfatal error: [m[Kdriver-config.h: No such file or directory
+   21 | #include [01;31m[K"driver-config.h"[m[K
+      |          [01;31m[K^~~~~~~~~~~~~~~~~[m[K
+compilation terminated.
+make[5]: *** [/nix/store/6lcz8r0ygva68y2iy6b1idqypc5lv0hq-linux-6.15.0-dev/lib/modules/6.15.0-cachyos/source/scripts/Makefile.build:208: linux/hostif.o] Error 1
+make[5]: *** Waiting for unfinished jobs....
+make[5]: *** [/nix/store/6lcz8r0ygva68y2iy6b1idqypc5lv0hq-linux-6.15.0-dev/lib/modules/6.15.0-cachyos/source/scripts/Makefile.build:208: linux/driver.o] Error 1
+[01m[Klinux/driverLog.c:26:10:[m[K [01;31m[Kfatal error: [m[Kdriver-config.h: No such file or directory
+   26 | #include [01;31m[K"driver-config.h"[m[K
+      |          [01;31m[K^~~~~~~~~~~~~~~~~[m[K
+compilation terminated.
+make[5]: *** [/nix/store/6lcz8r0ygva68y2iy6b1idqypc5lv0hq-linux-6.15.0-dev/lib/modules/6.15.0-cachyos/source/scripts/Makefile.build:208: linux/driverLog.o] Error 1
+make[4]: *** [/nix/store/6lcz8r0ygva68y2iy6b1idqypc5lv0hq-linux-6.15.0-dev/lib/modules/6.15.0-cachyos/source/Makefile:2039: .] Error 2
+make[3]: *** [/nix/store/6lcz8r0ygva68y2iy6b1idqypc5lv0hq-linux-6.15.0-dev/lib/modules/6.15.0-cachyos/source/Makefile:248: __sub-make] Error 2
+make[3]: Leaving directory '/build/source/vmmon-only'
+make[2]: *** [/nix/store/6lcz8r0ygva68y2iy6b1idqypc5lv0hq-linux-6.15.0-dev/lib/modules/6.15.0-cachyos/source/Makefile:248: __sub-make] Error 2
+make[2]: Leaving directory '/nix/store/6lcz8r0ygva68y2iy6b1idqypc5lv0hq-linux-6.15.0-dev/lib/modules/6.15.0-cachyos/build'
+make[1]: *** [Makefile:117: vmmon.ko] Error 2
+make[1]: Leaving directory '/build/source/vmmon-only'
+make: *** [Makefile:21: vmmon-only] Error 2
+make: *** Waiting for unfinished jobs....
+  CC [M]  driver.o
+  CC [M]  hub.o
+  CC [M]  userif.o
+  CC [M]  netif.o
+  CC [M]  bridge.o
+  CC [M]  procfs.o
+  CC [M]  smac_compat.o
+  CC [M]  smac.o
+  CC [M]  vnetEvent.o
+  CC [M]  vnetUserListener.o
+  LD [M]  vmnet.o
+vmnet.o: warning: objtool: VNetCsumCopyDatagram+0x85: call to csum_partial_copy_nocheck() with UACCESS enabled
+vmnet.o: error: objtool: init_module(): Magic init_module() function name is deprecated, use module_init(fn) instead
+make[5]: *** [/nix/store/6lcz8r0ygva68y2iy6b1idqypc5lv0hq-linux-6.15.0-dev/lib/modules/6.15.0-cachyos/source/scripts/Makefile.build:449: vmnet.o] Error 255
+make[5]: *** Deleting file 'vmnet.o'
+make[4]: *** [/nix/store/6lcz8r0ygva68y2iy6b1idqypc5lv0hq-linux-6.15.0-dev/lib/modules/6.15.0-cachyos/source/Makefile:2039: .] Error 2
+make[3]: *** [/nix/store/6lcz8r0ygva68y2iy6b1idqypc5lv0hq-linux-6.15.0-dev/lib/modules/6.15.0-cachyos/source/Makefile:248: __sub-make] Error 2
+make[3]: Leaving directory '/build/source/vmnet-only'
+make[2]: *** [/nix/store/6lcz8r0ygva68y2iy6b1idqypc5lv0hq-linux-6.15.0-dev/lib/modules/6.15.0-cachyos/source/Makefile:248: __sub-make] Error 2
+make[2]: Leaving directory '/nix/store/6lcz8r0ygva68y2iy6b1idqypc5lv0hq-linux-6.15.0-dev/lib/modules/6.15.0-cachyos/build'
+make[1]: *** [Makefile:117: vmnet.ko] Error 2
+make[1]: Leaving directory '/build/source/vmnet-only'
+make: *** [Makefile:21: vmnet-only] Error 2

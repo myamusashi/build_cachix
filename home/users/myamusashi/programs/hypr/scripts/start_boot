@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+
+export DISPLAY=:0
+export DBUS_SESSION_BUS_ADDRESS
+
+NAMA=${USER}
+WAKTU=$(date +%c)
+JAM=$(date +%k)
+
+clock_boot() {
+    if [[ 5 -ge "$JAM" && "$JAM" -le 12 ]]; then
+        wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 40%
+        sleep 3
+        # mpg123 ~/.config/hypr/scripts/audiofile/xp_sound.mp3
+        sleep 8
+        notify-send -a "arch@gilang" "Hai Gilang, selamat pagi" "$WAKTU" -i "$HOME/.icons/Papirus/48x48/apps/nix-snowflake.svg"
+    elif [[ 12 -ge "$JAM" && "$JAM" -le 16 ]]; then
+        wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 40%
+        sleep 3
+        # mpg123 ~/.config/hypr/scripts/audiofile/xp_sound.mp3
+        sleep 8
+        notify-send -a "arch@gilang" "Hai Gilang, selamat siang" "$WAKTU" -i "$HOME/.icons/Papirus/48x48/apps/nix-snowflake.svg"
+    elif [[ 16 -ge "$JAM" && "$JAM" -le 19 ]]; then
+        wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 40%
+        sleep 3
+        # mpg123 ~/.config/hypr/scripts/audiofile/xp_sound.mp3
+        sleep 8
+        notify-send -a "arch@gilang" "Hai Gilang, selamat sore" "$WAKTU" -i "$HOME/.icons/Papirus/48x48/apps/nix-snowflake.svg"
+    else
+        wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 40%
+        sleep 3
+        # mpg123 ~/.config/hypr/scripts/audiofile/xp_sound.mp3
+        sleep 8
+        notify-send -a "arch@gilang" "Hai Gilang, selamat malam" "$WAKTU" -i "$HOME/.icons/Papirus/48x48/apps/nix-snowflake.svg"
+    fi
+}
+
+clock_boot
+# query_wall

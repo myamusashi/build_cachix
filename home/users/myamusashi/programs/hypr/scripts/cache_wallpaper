@@ -1,0 +1,27 @@
+#!/bin/sh
+HOME="/home/username" 
+
+export DISPLAY=:0
+export WAYLAND_DISPLAY=wayland-0
+eval "export $(/usr/bin/grep -z DBUS_SESSION_BUS_ADDRESS /proc/$(/usr/bin/pgrep -u gilang Hyprland)/environ)"
+
+cache_dir="$HOME/.cache/wall"
+file_cache_edp=${cache_dir}/edp.png
+file_cache_hdmi=${cache_dir}/hdmi.png
+
+/usr/bin/mkdir -p "$cache_dir"
+
+cache_edp_wall=$(/usr/bin/swww query | /usr/bin/grep eDP | /usr/bin/awk '{print $8}')
+cache_hdmi_wall=$(/usr/bin/swww query | /usr/bin/grep HDMI | /usr/bin/awk '{print $8}')
+
+echo "$(/usr/bin/date): Attempting to copy wallpapers" >> "$HOME/wallpaper_cron.log"
+
+if [ ! -z "$cache_edp_wall" ]; then
+    /usr/bin/cp -f "$cache_edp_wall" "$file_cache_edp"
+    echo "Copied eDP wallpaper" >> "$HOME/wallpaper_cron.log"
+fi
+
+if [ ! -z "$cache_hdmi_wall" ]; then
+    /usr/bin/cp -f "$cache_hdmi_wall" "$file_cache_hdmi"
+    echo "Copied HDMI wallpaper" >> "$HOME/wallpaper_cron.log"
+fi

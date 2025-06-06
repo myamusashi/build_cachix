@@ -1,0 +1,32 @@
+{pkgs, ...}: {
+  environment.systemPackages = with pkgs; [
+    cachix
+    sops
+    age
+    gh
+    zip
+    alejandra
+    statix
+    nixfmt-classic
+    unzip
+    ripgrep
+    docker-compose
+    nushell
+    neovim
+    wget
+    ntfs3g
+    android-tools
+    docker
+    jq
+    procps
+    btop
+    htop
+    nix-output-monitor
+    nix-top
+    git
+    lazydocker
+    lazygit
+    lazyjournal
+    lazysql
+  ];
+}

@@ -1,0 +1,107 @@
+* {
+    background-image: none;
+    font-size: 15px;
+}
+
+window {
+    background-color: rgba(54, 54, 70, 0.5);
+}
+
+button {
+    color: #2A2A37;
+    background-color: #E6C384;
+    outline-style: none;
+    border: none;
+    border-width: 0px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 20%;
+    border-radius: 0px;
+    box-shadow: none;
+    text-shadow: none;
+    animation: zoom-bounce 20s ease-in infinite;
+}
+
+button:focus {
+    background-color: #7E9CD8;
+	color: #DCD7BA;
+	font-size: 25px;
+    background-size: 30%;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #FFA066;
+	color: #DCD7BA;
+    font-size: 15px;
+	background-size: 40%;
+    border-radius: 5px;
+    animation: zoom-bounce 20s ease-in infinite;
+    transition: all 0.3s cubic-bezier(.55,0.0,.28,1.682);
+}
+
+button:hover#lock {
+    border-radius: 20px;
+    margin : 0px 0px 20px 20px;
+}
+
+button:hover#logout {
+    border-radius: 20px;
+    margin : 20px 0px 0px 20px;
+}
+
+button:hover#sleep {
+    border-radius: 20px;
+    margin : 0px 20px 20px 20px;
+}
+
+button:hover#shutdown {
+    border-radius: 20px;
+    margin : 0px 20px 20px 0px;
+}
+
+button:hover#hibernate {
+    border-radius: 20px;
+    margin : 20px 20px 0px 20px;
+}
+
+button:hover#reboot {
+    border-radius: 20px;
+    margin : 20px 20px 0px 0px;
+}
+
+#lock {
+    background-image: image(url("/home/myamusashi/.dots/home/users/myamusashi/programs/wlogout/image/lock.png"));
+    border-radius: 0px;
+    margin : 0px 0px 0px 0px;
+}
+
+#logout {
+    background-image: image(url("/home/myamusashi/.dots/home/users/myamusashi/programs/wlogout/image/log-out.png"));
+    border-radius: 0px;
+    margin : 0px 0px 0px 0px;
+}
+
+#sleep {
+    background-image: image(url("/home/myamusashi/.dots/home/users/myamusashi/programs/wlogout/image/sleep.png"));
+    border-radius: 0px;
+    margin : 0px 0px 0px 0px;
+}
+
+#shutdown {
+    background-image: image(url("/home/myamusashi/.dots/home/users/myamusashi/programs/wlogout/image/shutdown.png"));
+    border-radius: 0px;
+    margin : 0px 0px 0px 0px;
+}
+
+#hibernate {
+    background-image: image(url("/home/myamusashi/.dots/home/users/myamusashi/programs/wlogout/image/hibernate.png"));
+    border-radius: 0px;
+    margin : 0px 0px 0px 0px;
+}
+
+#reboot {
+    background-image: image(url("/home/myamusashi/.dots/home/users/myamusashi/programs/wlogout/image/reboot.png"));
+    border-radius: 0px;
+    margin : 0px 0px 0px 0px;
+}
